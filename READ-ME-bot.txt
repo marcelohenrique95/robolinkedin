@@ -1,0 +1,30 @@
+
+Para correta execução do bot é necessário o webdriver do selenium construído para o sistema operancional.
+Url: https://github.com/mozilla/geckodriver/releases
+
+Unbutu: geckodriver-v0.29.0-linux64.tar.gz
+Win: geckodriver-v0.29.0-win64.zip.
+
+O arquivo geckodriver.exe deve está na mesma pasta do .JAR
+
+para executar o jar deve passar como argumentos os seguintes paramentros. Os valores são exemplos.
+
+className=IncluirOcorrenciaCarga localizarNcoletaInicial=5253 localizarNcoletaFinal=5253 Status=1977
+className=IncluirOcorrenciaCTE numeroCTR=5253 serie=00 Status=1983 latitude=13.485897 longitude=15.254897 observacao=teste_de_observacao
+
+ex: java -jar NOME_DO_JAR.jar  className=IncluirOcorrenciaCTE numeroCTR=5253 serie=00 Status=1983 latitude=13.485897 longitude=15.254897 observacao=teste_de_observacao
+
+----ATIVAÇÃO DE LEITURA de TEXTO em IMAGEM---- tesseract-ocr
+
+Para configurar a ativação de leitura de texto a partir de screenShot, tem que adicionar as libs no projeto;
+
+implementation "net.sourceforge.tess4j:tess4j:4.5.4" //leitor de texto nas imagens
+implementation group: 'net.sourceforge.lept4j', name: 'lept4j', version: '1.14.0' //leitor de texto nas imagens
+
+Criar uma pasta chamada "tessdata" nas raiz do projeto em seguida fazer o download do arquivo no site.
+https://github.com/tesseract-ocr/tessdata
+por.traneddata -> portugues
+eng.traneddata -> ingles
+Definir o caminho onde as screenshots serão salvas: imagem.screenshot.path
+
+

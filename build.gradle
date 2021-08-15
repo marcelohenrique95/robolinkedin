@@ -1,0 +1,54 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+
+
+    implementation "org.springframework.boot:spring-boot-starter:2.4.4"
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.4.4'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+    implementation "org.seleniumhq.selenium:selenium-java:3.141.59"
+    implementation group: 'org.apache.commons', name: 'commons-configuration2', version: '2.7'
+    implementation group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
+    implementation group: 'org.apache.poi', name: 'poi', version: '4.1.2'
+
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+
+
+    runtimeOnly 'org.postgresql:postgresql:42.2.19'
+
+    //implementation "net.sourceforge.tess4j:tess4j:4.5.4" //leitor de texto nas imagens
+    //implementation group: 'net.sourceforge.lept4j', name: 'lept4j', version: '1.14.0' //leitor de texto nas imagens
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'br.com.nomad.batch.IncluirOcorrenciaCarga'
+    }
+    baseName = project.name + '-all'
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

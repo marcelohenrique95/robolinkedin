@@ -1,0 +1,13 @@
+
+Para correta execução do bot é necessário o webdriver do selenium constuído para o geckodriver-v0.29.0-linux64.tar.gz
+https://github.com/mozilla/geckodriver/releases
+Para executar no Windows é necessário geckodriver-v0.29.0-win64.zip.
+
+O arquivo geckodriver.exe deve está na mesma pasta do .JAR
+
+para executar o jar deve passar como argumentos os seguintes paramentros. Os valores são exemplos.
+
+className=IncluirOcorrenciaCarga localizarNcoletaInicial=5253 localizarNcoletaFinal=5253 Status=1977
+className=IncluirOcorrenciaCTE numeroCTR=5253 serie=00 Status=1983 latitude=13.485897 longitude=15.254897 observacao=teste_de_observacao
+
+ex: java -jar NOME_DO_JAR.jar  className=IncluirOcorrenciaCTE numeroCTR=5253 serie=00 Status=1983 latitude=13.485897 longitude=15.254897 observacao=teste_de_observacao
