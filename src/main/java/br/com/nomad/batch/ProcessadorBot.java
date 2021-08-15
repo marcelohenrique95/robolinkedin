@@ -68,8 +68,8 @@ public class ProcessadorBot implements CommandLineRunner {
 		driver.manage().window().maximize();
 		System.out.println("Abrindo Linkedin...");
 		driver.get("https://www.linkedin.com/login/pt");
-		driver.findElement(By.id("username")).sendKeys("marcelohenrique8061@gmail.com" + Keys.TAB);
-		driver.findElement(By.id("password")).sendKeys("mama14789" + Keys.TAB);
+		driver.findElement(By.id("username")).sendKeys("YOUREMAIL" + Keys.TAB);
+		driver.findElement(By.id("password")).sendKeys("YOURPASS" + Keys.TAB);
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(2000);
 		openProfile();
